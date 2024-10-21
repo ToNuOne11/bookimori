@@ -18,7 +18,7 @@
     <div>
         <p>
             <b>${book.title}</b>
-            ${book.rating} | <a href ="/product/${book.id}"> ... </a>
+            ${book.rating} | <a href ="/book/${book.id}"> ... </a>
         </p>
     </div>
 <#else>

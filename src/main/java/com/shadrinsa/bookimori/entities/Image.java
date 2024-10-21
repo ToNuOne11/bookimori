@@ -21,12 +21,14 @@ public class Image {
     private String name;
     @Column(name = "originalFileName")
     private String originalFileName;
+    @Column(name = "contentType")
+    private String contentType;
     @Column(name = "size")
     private Long size;
     @Lob
     private byte[] bytes;
 
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Book book;
 }

@@ -20,7 +20,10 @@ public class BookService {
     }
     public void saveBook(Book book, MultipartFile file) throws IOException {
         Image image;
-        if(!file.isEmpty()) image = toImageEntity(file);
+        if(!file.isEmpty()) {
+            image = toImageEntity(file);
+            book.addImageToBook(image);
+        }
         bookRepository.save(book);
     }
 
@@ -29,8 +32,12 @@ public class BookService {
         image.setName(file.getName());
         image.setOriginalFileName(file.getOriginalFilename());
         image.setSize(file.getSize());
+        image.setContentType(file.getContentType());
         image.setBytes(file.getBytes());
         return image;
     }
 
+    public Book getBookById(Long id) {
+        return bookRepository.findById(id).orElse(null);
+    }
 }

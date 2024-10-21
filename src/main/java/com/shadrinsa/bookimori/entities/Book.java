@@ -21,7 +21,11 @@ public class Book {
     private String author;
     @Column(name = "rating")
     private Short rating;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "book")
     private Image cover;
 
+    public void addImageToBook(Image image) {
+        image.setBook(this);
+        cover = image;
+    }
 }
