@@ -34,4 +34,9 @@ public class BookController {
         model.addAttribute("cover", book.getCover());
         return "book-info";
     }
+    @PostMapping("book/delete/{id}")
+    public String deleteBook(@PathVariable Long id){
+        bookService.delete(id);
+        return "redirect:/";
+    }
 }

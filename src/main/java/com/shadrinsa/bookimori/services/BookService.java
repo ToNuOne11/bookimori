@@ -36,7 +36,9 @@ public class BookService {
         image.setBytes(file.getBytes());
         return image;
     }
-
+    public void delete(Long id){
+        bookRepository.deleteById(id);
+    }
     public Book getBookById(Long id) {
         return bookRepository.findById(id).orElse(null);
     }

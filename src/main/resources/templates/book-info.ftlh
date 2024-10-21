@@ -9,12 +9,14 @@
 
 
 <h3>
-  <img src="/image/${cover.id}" height="150px" /> <br><br>
-Название:  ${book.title} <br>
-Описание:   ${book.description} <br>
-Оценка:   ${book.rating} <br>
-Автор:   ${book.author} <br>
+  <img src="/image/${cover.id}" height="250px" /> <br><br>
+  Название:  ${book.title} <br>
 </h3>
+  <h4>Автор:   ${book.author} <br></h4>
+<h5>Описание:   ${book.description} <br> </h5>
+Оценка:   ${book.rating} <br>
+
+
 <hr>
 <form action="/book/delete/${book.id}" method="post">
   <input type="submit" value="Удалить"/>
