@@ -5,6 +5,7 @@ import lombok.*;
 @Entity
 @Table(name = "books")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {

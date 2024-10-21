@@ -1,10 +1,14 @@
 package com.shadrinsa.bookimori.services;
 
 import com.shadrinsa.bookimori.entities.Book;
+import com.shadrinsa.bookimori.entities.Image;
 import com.shadrinsa.bookimori.repositories.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -14,4 +18,19 @@ public class BookService {
             if(title != null) return bookRepository.findByTitle(title);
             return bookRepository.findAll();
     }
+    public void saveBook(Book book, MultipartFile file) throws IOException {
+        Image image;
+        if(!file.isEmpty()) image = toImageEntity(file);
+        bookRepository.save(book);
+    }
+
+    private Image toImageEntity(MultipartFile file) throws IOException {
+        Image image = new Image();
+        image.setName(file.getName());
+        image.setOriginalFileName(file.getOriginalFilename());
+        image.setSize(file.getSize());
+        image.setBytes(file.getBytes());
+        return image;
+    }
+
 }
