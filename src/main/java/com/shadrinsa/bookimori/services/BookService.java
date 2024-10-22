@@ -15,7 +15,7 @@ import java.util.List;
 public class BookService {
     private final BookRepository bookRepository;
     public List<Book> listBook(String title) {
-            if(title != null) return bookRepository.findByTitle(title);
+            if(title != null) return bookRepository.findByTitleIgnoreCaseContaining(title);
             return bookRepository.findAll();
     }
     public void saveBook(Book book, MultipartFile file) throws IOException {
