@@ -9,30 +9,29 @@
 <h1>
     Bookimori
 </h1><hr>
-<form action="/" method="get">
-    Поиск: <input type="text" name="title"><br>
+<form class="searchForm" action="/" method="get">
+    <input type="text" name="title" style="width: 300px;">
     <input type="submit" value="Поиск"/>
 </form>
+
+<form class="addButton" action="/addBook" method="get">
+    <input type="submit" value="Добавить">
+</form>
 <h4>Список книг</h4>
+<div class="bookDiv">
 <#list books as book>
-    <div>
+    <div >
         <p>
-            <b>${book.title}</b>
-            ${book.rating} | <a href ="/book/${book.id}"> <img src="/image/${book.getCover().id}" height="250px" /> <br><br> </a>
+            <a href ="/book/${book.id}"> <img src="/image/${book.getCover().id}" width="200" height="250px" /> <br> </a>
+            <h3><b>${book.title}
+            ${book.rating}</b></h3>
         </p>
     </div>
 <#else>
     <h3> Ничего не найдено </h3>
 </#list>
+</div>
 <hr>
-<h3>Добавить книгу</h3>
-<form action="/book/adding" method="post" enctype="multipart/form-data">
-    Название: <input type="text" name="title"/><br><br>
-    Описание: <input type="text" name="description"/><br><br>
-    Автор: <input type="text" name="author"/><br><br>
-    Оценка <input type="number" name="rating"/><br><br>
-    Обложка: <input type="file" name="file"/><br><br>
-    <input type="submit" value="Добавить">
-</form>
+<link rel="stylesheet" href="style.css">
 </body>
 </html>

@@ -23,6 +23,10 @@ public class BookController {
 
         return "books";
     }
+    @GetMapping("/addBook")
+    public String addBook(){
+        return "addBook";
+    }
     @PostMapping("/book/adding")
     public String addBook(@RequestParam("file") MultipartFile file, Book book) throws IOException {
         bookService.saveBook(book, file);
