@@ -9,7 +9,7 @@
 
 
 <h3>
-  <img src="/image/${cover.id}" height="250px" /> <br><br>
+  <img src="/image/${book.getCover().id}" height="250px" /> <br><br>
   Название:  ${book.title} <br>
 </h3>
   <h4>Автор:   ${book.author} <br></h4>

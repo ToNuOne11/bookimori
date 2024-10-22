@@ -29,6 +29,6 @@ public class Image {
     private byte[] bytes;
 
 
-    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Book book;
 }

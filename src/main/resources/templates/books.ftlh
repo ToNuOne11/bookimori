@@ -18,7 +18,7 @@
     <div>
         <p>
             <b>${book.title}</b>
-            ${book.rating} | <a href ="/book/${book.id}"> ... </a>
+            ${book.rating} | <a href ="/book/${book.id}"> <img src="/image/${book.getCover().id}" height="250px" /> <br><br> </a>
         </p>
     </div>
 <#else>

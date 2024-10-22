@@ -15,14 +15,18 @@ public class Book {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
     private String description;
     @Column(name = "author")
     private String author;
     @Column(name = "rating")
     private Short rating;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "book")
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "cover_id")
     private Image cover;
+
+
 
     public void addImageToBook(Image image) {
         image.setBook(this);

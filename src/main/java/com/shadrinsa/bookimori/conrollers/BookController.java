@@ -20,6 +20,7 @@ public class BookController {
     @GetMapping("/")
     public String books(@RequestParam(name = "title", required = false) String title, Model model){
         model.addAttribute("books", bookService.listBook(title));
+
         return "books";
     }
     @PostMapping("/book/adding")
@@ -29,9 +30,7 @@ public class BookController {
     }
     @GetMapping("/book/{id}")
     public String bookInfo(@PathVariable Long id, Model model) {
-        Book book = bookService.getBookById(id);
         model.addAttribute("book", bookService.getBookById(id));
-        model.addAttribute("cover", book.getCover());
         return "book-info";
     }
     @PostMapping("book/delete/{id}")
