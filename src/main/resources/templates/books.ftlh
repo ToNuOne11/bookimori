@@ -31,7 +31,6 @@
     <h3> Ничего не найдено </h3>
 </#list>
 </div>
-<hr>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </body>
 </html>
